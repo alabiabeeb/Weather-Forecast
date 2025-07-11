@@ -86,25 +86,65 @@ header a{
 .nav li a:hover{
      color:blueviolet;
 }
-.input{
-    display: flex;
-    /* gap: 10px; */
-    width: 30%;
-    margin-left:32%;
-    margin-top: 40px;
-}
-#city-input{
-    padding: 10px;
-    border-radius: 10px;
-    width: 100%;
-}
-#search-btn{
-    background-color: blueviolet;
-    /* width: 60px; */
-    padding: 10px;
-    border-radius: 8px;
-       /* margin-left:32%; */
-}
+
+    .input {
+        margin: 30px 0;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        width: 250px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        outline: none;
+    }
+
+    #search-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-left: 10px;
+        border: none;
+        background-color:blueviolet;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #search-btn:hover {
+        background-color:rgb(65, 8, 119);
+    }
+
+    #result {
+        margin-top: 30px;
+        display: inline-block;
+        background-color: #ffffff;
+        padding: 20px 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        min-width: 280px;
+        max-width: 90%;
+    }
+
+    #result h3 {
+        margin-top: 0;
+        color: #333;
+        font-size: 24px;
+    }
+
+    #result p {
+        font-size: 16px;
+        margin: 8px 0;
+        color: #555;
+    }
+
+    /* Error message styling */
+    #result p[style*="color:red"] {
+        color: red;
+        font-weight: bold;
+    }
   @keyframes SlideLeft{
        from{margin-left:900px}
        to{margin-left: 0;}
@@ -183,17 +223,63 @@ header a{
     margin-top: 40px;
 }
     
- .input  #city-input {
-    padding: 8px;
-    border-radius: 10px; 
-    width: 24.2rem;
-}
-  
-    #search-btn{
-    background-color: blueviolet;
-    padding: 10px;
-    border-radius: 8px;
-    left: 0;
-    top: 22%;
-}
+.input {
+        margin: 30px 0;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        width: 100%;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        outline: none;
+    }
+
+    #search-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-left: 10px;
+        border: none;
+        background-color:blueviolet;
+        color: white;
+        border-radius: 6px;
+        width: 30%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #search-btn:hover {
+        background-color:rgb(65, 8, 119);
+    }
+
+    #result {
+        margin-top: 30px;
+        display: inline-block;
+        background-color: #ffffff;
+        padding: 20px 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        min-width: 280px;
+        max-width: 90%;
+    }
+
+    #result h3 {
+        margin-top: 0;
+        color: #333;
+        font-size: 24px;
+    }
+
+    #result p {
+        font-size: 16px;
+        margin: 8px 0;
+        color: #555;
+    }
+
+    /* Error message styling */
+    #result p[style*="color:red"] {
+        color: red;
+        font-weight: bold;
+    }
 }

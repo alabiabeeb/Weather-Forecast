@@ -5,66 +5,59 @@ const Button = document.querySelector(".nav");
 const Menubtn = document.querySelector(".Menu");
 const enterCityBtn = document.getElementById('enter-city-btn');
 
-// Menu toggle
+
+
+const API_KEY = "5d4b1b1534f854a95079b9a13fe31a3c";
+
+
 if (Menubtn && Button) {
     Menubtn.addEventListener("click", () => {
         Button.classList.toggle("show");
     });
 }
 
-// "Enter City" button navigation (only if present)
+
 if (enterCityBtn) {
     enterCityBtn.addEventListener('click', () => {
         window.location.href = 'search.html';
     });
 }
 
-    // Menu toggle
-    if (Menubtn && Button) {
-        Menubtn.addEventListener("click", () => {
-            Button.classList.toggle("show");
-        });
-    }
+if (searchBtn && cityInput && resultDiv) {
+    searchBtn.addEventListener('click', () => {
+        const city = cityInput.value.trim();
+        if (!city) return;
 
-    // Supported cities with UTC offsets
-    const cityTimezones = {
-        "london": 0,
-        "new york": -4,
-        "tokyo": 9,
-        "paris": 1,
-        "lagos": 1,
-        "sydney": 10,
-        "berlin": 2,
-        "cairo": 2,
-        "mumbai": 5.5,
-        "beijing": 8,
-        "los angeles": -7,
-        "nairobi": 3,
-        "capetown": 2,
-        "rio de janeiro": -3
-    };
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`;
 
-    const fakeWeather = [
-        "Sunny", "Cloudy", "Rainy", "Windy", "Stormy", "Snowy"
-    ];
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(text => {
+                        throw new Error(`API Error: ${text}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                const cityName = data.name;
+                const weather = data.weather[0].description;
+                const temperature = data.main.temp;
+                const timezoneOffset = data.timezone;
 
-    if (searchBtn && cityInput && resultDiv) {
-        searchBtn.addEventListener('click', () => {
-            const city = cityInput.value.trim().toLowerCase();
-            if (city && cityTimezones.hasOwnProperty(city)) {
                 const now = new Date();
-                const offset = cityTimezones[city] * 3600000;
-                const cityTime = new Date(now.getTime() + offset);
-
-                const weather = fakeWeather[Math.floor(Math.random() * fakeWeather.length)];
+                const localTime = new Date(now.getTime() + (timezoneOffset * 1000));
 
                 resultDiv.innerHTML = `
-                    <h3>${city.charAt(0).toUpperCase() + city.slice(1)}</h3>
-                    <p>Current time: ${cityTime.toLocaleTimeString()}</p>
+                    <h3>${cityName}</h3>
+                    <p>Current time: ${localTime.toLocaleTimeString()}</p>
                     <p>Weather: ${weather}</p>
+                    <p>Temperature: ${temperature}&deg;C</p>
                 `;
-            } else {
-                resultDiv.innerHTML = "<p style='color:red;'>City not found or not supported.</p>";
-            }
-        });
-    }
+            })
+            .catch(error => {
+                console.error("Error fetching weather:", error);
+                resultDiv.innerHTML = `<p style="color:red;">${error.message}</p>`;
+            });
+    });
+}
