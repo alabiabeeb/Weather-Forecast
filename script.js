@@ -10,7 +10,7 @@ const enterCityBtn = document.getElementById('enter-city-btn');
 const API_KEY = "5d4b1b1534f854a95079b9a13fe31a3c";
 
 
-if (Menubtn && Button) {
+if (Menubtn && Button) { 
     Menubtn.addEventListener("click", () => {
         Button.classList.toggle("show");
     });
