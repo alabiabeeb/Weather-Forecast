@@ -13,6 +13,8 @@ header {
     backdrop-filter: blur(10px);
     background: rgba(40, 0, 70, 0.85);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    position: sticky;
 }
 
 header .Menu{
@@ -65,20 +67,25 @@ header a{
 }
 .section{
     display: flex;
-    flex-direction: column;
+    background-image: url(cloudy.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    padding: 20px;
     gap: 20px;
-    margin-left: 35%;
-    margin-top: 40px;
+    width: 100%;
+    height: 100vh;
 }
 
-.section img{
-    border-radius: 100%;
-    width: 50%;
-}
 .top{
     display: flex;
     flex-direction: column;
     width: 40%;
+    position: relative;
+    top: 50%;
+    margin-left: 30%;
     gap: 10px;
 }
 .button1{
@@ -105,7 +112,7 @@ header a{
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 40px 30px;
-    background: linear-gradient(to right, #1c0522, #000);
+    /* background: linear-gradient(to right, #1c0522, #000); */
     color: #eee;
     box-shadow: 0 0 15px rgba(125, 12, 231, 0.4);
     margin-top: 80px;
@@ -296,22 +303,27 @@ header a{
 	header .Menu{
 		display: block;
 	}
-    .section{
+.section{
     display: flex;
-    flex-direction: column;
+    background-image: url(cloudy.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    padding: 20px;
     gap: 20px;
-    margin-left: 35%;
-    margin-top: 40px;
-}
-.section img{
-    /* border-radius: 100%; */
-    width: 90%;
+    width: 100%;
+    height: 100vh;
 }
 .top{
     display: flex;
     flex-direction: column;
+    width: 40%;
+    position: relative;
+    top: 50%;
+    margin-left: 30%;
     gap: 10px;
-    margin-top: 70%;
 }
 .button1{
     background-color: blueviolet;
