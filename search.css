@@ -10,7 +10,6 @@ body {
     background-color: #121212;
     color: #fff;
     padding: 20px;
-    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -94,32 +93,58 @@ header a{
 }
 
 .input {
-    margin-top: 60px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background: linear-gradient(to right, #1f0a3a, #0f001a);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(144, 0, 255, 0.3);
+  flex-wrap: wrap;
+  margin: 20px;
 }
 
-.input input[type="text"] {
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    outline: none;
-    width: 300px;
-    background: #2b2b2b;
-    color: white;
-    transition: 0.3s;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+.input input {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 250px;
+  background-color: #ffffff;
+  color: #333;
+  outline: none;
 }
 
-.input input[type="text"]:focus {
-    border-color: #a155f9;
-    background-color: #1e1e1e;
+.input input::placeholder {
+  color: #888;
 }
+
+.input button {
+  padding: 12px 20px;
+  border: none;
+  background-color: #6c00ff;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.input button:hover {
+  background-color: #5100c3;
+}
+
+/* Accessibility: hide label but keep it for screen readers */
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 
 
  #search-btn {

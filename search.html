@@ -23,9 +23,11 @@
 </header>
 
 <div class="input">
-    <input type="text" placeholder="Search city....." id="city-input">
-    <button id="search-btn">Search</button>
+  <label for="city-input" class="sr-only">Enter a city name:</label>
+  <input type="text" placeholder="Search city..." id="city-input" name="city" required>
+  <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
 </div>
+
 
 <div id="result"></div>
 
